@@ -2,7 +2,7 @@ version: "2"
 
 services:
   voting-app:
-    image: nicolaka/voting-app:latest
+    image: dockertrainingja/voting-app:20160712
     ports:
       - "80"
     networks:
@@ -11,7 +11,7 @@ services:
      interlock.hostname: "vote"
      interlock.domain:   "example.org"
   result-app:
-    image: nicolaka/result-app:latest
+    image: dockertrainingja/result-app:20160712
     ports:
       - "80"
     networks:
@@ -20,13 +20,13 @@ services:
      interlock.hostname: "result"
      interlock.domain:   "example.org"
   worker:
-    image: nicolaka/worker:latest
+    image: dockertrainingja/worker:20160712
     networks:
       voteapp:
        aliases:
         - workers
   redis:
-    image: redis
+    image: redis:3.2
     ports:
       - "6379"
     networks:
